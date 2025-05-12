@@ -1,0 +1,1 @@
+export const baseUrl = 'http://localhost:9000'; // your Flask backend URL

@@ -1,0 +1,132 @@
+<div class="dashboard-container">
+    <div class="content-wrapper">
+        <div class="header">
+            <button class="back-button" (click)="logout()">
+                <i class="fas fa-arrow-left"></i> Back to Login
+            </button>
+            <h1>Store Dashboard</h1>
+        </div>
+
+    <!-- Power BI Dashboard Section -->
+    <div class="powerbi-section">
+        <iframe 
+            title="magasin_version" 
+            width="100%" 
+            height="800" 
+            src="https://app.powerbi.com/reportEmbed?reportId=0437ab9c-181c-4dc6-af55-41261b29e005&autoAuth=true&ctid=604f1a96-cbe8-43f8-abbf-f8eaf5d85730&navContentPaneEnabled=false&filterPaneEnabled=false" 
+            frameborder="0" 
+            allowFullScreen="true">
+        </iframe>
+    </div>
+
+    <!-- === Section 1: Quantity Forecast === -->
+    <div class="section chart-section">
+      <h3>Quantity Sales for the Next 12 Months</h3>
+      <div *ngIf="forecast.length > 0; else noForecast">
+        <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="'line'"></canvas>
+      </div>
+      <ng-template #noForecast>
+        <p>No forecast data available yet.</p>
+      </ng-template>
+    </div>
+
+    <!-- === Section 2: Predict Price === -->
+    <div class="section">
+      <h3>Check Your Price Estimate</h3>
+      <div class="input-group">
+        <label>Category:</label>
+        <select [(ngModel)]="category">
+          <option value="">-- Select a category --</option>
+          <option value="hygiene">Hygiène</option>
+          <option value="epicerie">Épicerie</option>
+          <option value="marche">Marché</option>
+          <option value="boisson">Boisson</option>
+          <option value="cremerie">Crèmerie</option>
+        </select>
+        
+        <label>Store Name:</label>
+        <select [(ngModel)]="storeId">
+          <option value="">-- Select a store --</option>
+          <option value="19">Carrefour</option>
+          <option value="37">Géant</option>
+        </select>
+        
+      </div>
+      <div class="button-container">
+        <button class="estimate-btn" (click)="predictPrice()"><i class="fas fa-chart-line"></i> Get Price Estimate</button>
+      </div>
+  
+      <!-- Predicted Price Display -->
+      <div class="kpi-section">
+        <div class="kpi-card" *ngIf="predictedPrice !== null; else noPrediction">
+          <h4>Predicted Price</h4>
+          <p class="kpi-value">{{ predictedPrice }} TND</p>
+        </div>
+        <ng-template #noPrediction>
+          <div class="kpi-card">
+            <p>No price prediction available yet.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  
+    <!-- === Section 2: Product Classification === -->
+    <div class="section">
+      <h3>Identify Product Category</h3>
+      <div class="input-group">
+        <label>What is your product?</label>
+        <input [(ngModel)]="feature1" type="number" placeholder="e.g., 5.2" />
+        <label>What are its key features?</label>
+        <input [(ngModel)]="feature2" type="number" placeholder="e.g., 1.3" />
+      </div>
+      <div class="button-container">
+        <button class="estimate-btn" (click)="classifyProduct()"><i class="fas fa-tags"></i> Identify Product Type</button>
+      </div>
+  
+      <!-- Classification Result -->
+      <div class="kpi-section">
+        <div class="kpi-card" *ngIf="classification; else noClassification">
+          <h4>Product Classification</h4>
+          <p>Category: {{ classification.predicted_category_label }}</p>
+          <p>Code: {{ classification.predicted_category_code }}</p>
+        </div>
+        <ng-template #noClassification>
+          <div class="kpi-card">
+            <p>No classification data available yet.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  
+  
+    <!-- === Section 3: Customers Feedback === -->
+    <div class="section">
+      <div class="section-header">
+        <h3>Customers Feedback</h3>
+        <button class="comments-toggle-btn" (click)="toggleComments()">
+          <i class="fas" [ngClass]="showComments ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          {{ showComments ? 'Hide Feedbacks' : 'Show Feedbacks' }}
+        </button>
+      </div>
+
+      <div class="comments-container" *ngIf="showComments">
+        <div class="comment-list" *ngIf="magasinComments.length > 0; else noComments">
+          <div class="comment-item" *ngFor="let comment of magasinComments">
+            <div class="comment-content">{{ comment.comment }}</div>
+            <div class="comment-meta">
+              <span class="comment-time">{{ comment.timestamp | date:'medium' }}</span>
+            </div>
+          </div>
+        </div>
+        <ng-template #noComments>
+          <p class="no-comments">No comments available for magasin.</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- === Error Message (If Any) === -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

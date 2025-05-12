@@ -1,0 +1,85 @@
+<div class="login-page">
+  <div class="login-container">
+    <!-- Brand Section -->
+    <div class="brand-section">
+      <div class="brand-content">
+        <i class="fas fa-balance-scale-right brand-icon"></i>
+        <h1 class="brand-name">CompareIt</h1>
+        <p class="brand-tagline">Your Smart Price Companion</p>
+        <p class="brand-description text-center mx-auto">Discover the best deals on flights, hotels, and stores with intelligent price comparisons and personalized suggestions driven by smart technology</p>
+      </div>
+      <div class="brand-features">
+        <div class="feature">
+          <i class="fas fa-plane-departure"></i>
+          <span>Flight Comparisons</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-hotel"></i>
+          <span>Hotel Deals</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-store"></i>
+          <span>Store Prices</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-brain"></i>
+          <span>AI Predictions</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Login Form Section -->
+    <div class="form-section">
+      <div class="form-container">
+        <h2 class="form-title">Welcome Back</h2>
+        <p class="form-subtitle">Sign in to access your dashboard</p>
+
+        <form (ngSubmit)="onLogin()" class="login-form">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-icon">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <input 
+                type="email" 
+                id="email" 
+                [(ngModel)]="email" 
+                name="email" 
+                class="form-control" 
+                placeholder="Enter your email"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-icon">
+                <i class="fas fa-lock"></i>
+              </span>
+              <input 
+                type="password" 
+                id="password" 
+                [(ngModel)]="password" 
+                name="password" 
+                class="form-control" 
+                placeholder="Enter your password"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="login-btn primary-btn">
+              <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+            <button type="button" class="dashboard-btn secondary-btn" routerLink="/customer-dashboard">
+              <i class="fas fa-chart-line"></i> Customer Dashboard
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

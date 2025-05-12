@@ -1,0 +1,415 @@
+:host {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.login-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.login-container {
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 600px;
+  max-height: 800px;
+  margin: 1rem auto;
+  box-shadow: 0 20px 60px rgba(51, 0, 102, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Brand Section */
+.brand-section {
+  flex: 1.2;
+  background: linear-gradient(135deg, #330066 0%, #1a0033 100%);
+  padding: 4rem 3rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M54 40l-6-6-6 6 6 6 6-6zM24 10l-4-4-4 4 4 4 4-4z" stroke="rgba(255,255,255,0.1)" fill="none"/></svg>');
+  opacity: 0.4;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.brand-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  margin: 2rem auto;
+  max-width: 80%;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding: 0 1rem;
+}
+
+.brand-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.brand-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.brand-tagline {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.brand-features {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.feature i {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.feature span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Form Section */
+.form-section {
+  flex: 0.8;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #330066;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #330066;
+  z-index: 1;
+}
+
+.form-control {
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #330066;
+  box-shadow: 0 0 0 0.25rem rgba(51, 0, 102, 0.25);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: #45108A;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #6B21A8;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: #f8f9fa;
+  color: #45108A;
+  border: 2px solid #45108A;
+}
+
+.secondary-btn:hover {
+  background: #45108A;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.primary-btn:active,
+.secondary-btn:active {
+  transform: translateY(1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .login-container {
+    max-width: 95%;
+    height: auto;
+    min-height: 600px;
+  }
+
+  .form-section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .login-container {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .brand-section,
+  .form-section {
+    width: 100%;
+  }
+
+  .brand-section {
+    padding: 2rem;
+  }
+
+  .form-section {
+    padding: 2rem;
+  }
+
+  .brand-features {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .feature {
+    padding: 0.75rem 1rem;
+  }
+
+  .login-page {
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .brand-content {
+    margin-bottom: 1.5rem;
+  }
+
+  .brand-description {
+    font-size: 0.95rem;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    margin: 0;
+    border-radius: 0;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .brand-section {
+    padding: 1.5rem;
+  }
+
+  .form-section {
+    padding: 1.5rem;
+  }
+
+  .brand-features {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.75rem;
+  }
+
+  .brand-description {
+    font-size: 0.9rem;
+    margin: 0.75rem auto;
+    max-width: 95%;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .input-icon {
+    font-size: 0.9rem;
+  }
+
+  .button-group {
+    gap: 0.75rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-section {
+    padding: 1.25rem;
+  }
+
+  .form-section {
+    padding: 1.25rem;
+  }
+
+  .brand-name {
+    font-size: 1.5rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.9rem;
+  }
+
+  .brand-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .feature {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .feature i {
+    font-size: 1rem;
+    margin-right: 0.75rem;
+  }
+
+  .feature span {
+    font-size: 0.8rem;
+  }
+
+  .form-control {
+    padding: 0.6rem 0.75rem 0.6rem 2.25rem;
+  }
+
+  .input-icon {
+    left: 0.75rem;
+  }
+}

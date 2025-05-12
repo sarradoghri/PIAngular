@@ -1,0 +1,52 @@
+<div class="dashboard-container">
+  <div class="content-wrapper">
+    <div class="header">
+      <button class="back-button" (click)="goToLogin()">
+        <i class="fas fa-arrow-left"></i> Back to Login
+      </button>
+      <h1>Flight Dashboard</h1>
+    </div>
+
+    <!-- Power BI Dashboard Section -->
+    <div class="powerbi-section">
+      <iframe 
+        title="Vol_version" 
+        width="100%" 
+        height="800" 
+        src="https://app.powerbi.com/reportEmbed?reportId=fb698b43-346a-4a05-9b58-46b3af82b4e5&autoAuth=true&ctid=604f1a96-cbe8-43f8-abbf-f8eaf5d85730&filterPaneEnabled=false&navContentPaneEnabled=false" 
+        frameborder="0" 
+        allowFullScreen="true">
+      </iframe>
+    </div>
+
+    <!-- Customers Feedback Section -->
+    <div class="section">
+      <div class="section-header">
+        <h3>Customers Feedback</h3>
+        <button class="comments-toggle-btn" (click)="toggleComments()">
+          <i class="fas" [ngClass]="showComments ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          {{ showComments ? 'Hide Feedbacks' : 'Show Feedbacks' }}
+        </button>
+      </div>
+
+      <div class="comments-container" *ngIf="showComments">
+        <div class="comment-list" *ngIf="flightComments.length > 0; else noComments">
+          <div class="comment-item" *ngFor="let comment of flightComments">
+            <div class="comment-content">{{ comment.comment }}</div>
+            <div class="comment-meta">
+              <span class="comment-time">{{ comment.timestamp | date:'medium' }}</span>
+            </div>
+          </div>
+        </div>
+        <ng-template #noComments>
+          <p class="no-comments">No feedback available yet.</p>
+        </ng-template>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,517 @@
+:host {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-wrapper {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(51, 0, 102, 0.15);
+}
+
+  /* Header and Back Button */
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light-gray);
+  }
+
+  /* Search Container Styles */
+  .search-container {
+    padding: 2rem 0;
+  }
+
+  .input-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .input-field {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+  }
+
+  .input-field label {
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    display: block;
+    font-size: 0.95rem;
+  }
+
+  .input-field input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+  }
+
+  .input-field input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(51, 0, 102, 0.1);
+    outline: none;
+  }
+
+  .search-button {
+    background: linear-gradient(135deg, #330066 0%, #1a0033 100%);
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .search-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(51, 0, 102, 0.2);
+  }
+
+  /* Results Section Styles */
+  .results-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--light-gray);
+  }
+
+  .chart-container {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(51, 0, 102, 0.06);
+  }
+
+  .recommendations-list {
+    margin-top: 2rem;
+  }
+
+  .recommendations-list h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .recommendation-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-gray);
+  }
+
+  .recommendation-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(51, 0, 102, 0.08);
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .product-name {
+    font-weight: 500;
+    color: var(--primary);
+  }
+
+  .product-category {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .price {
+    font-weight: 600;
+    color: var(--secondary);
+    font-size: 1.1rem;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem 0;
+    color: #666;
+  }
+
+  .no-results i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--light-gray);
+  }
+
+  .back-button {
+    background: linear-gradient(135deg, #330066 0%, #1a0033 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .back-button:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 5px 15px rgba(51, 0, 102, 0.2);
+  }
+
+  .back-button i {
+    font-size: 1rem;
+  }
+
+  /* Dashboard Title */
+  .header h1 {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  /* Power BI Dashboard Section */
+  .powerbi-section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin: 0.5rem 0 2rem 0;
+    border: 1px solid rgba(51, 0, 102, 0.1);
+    box-shadow: 0 10px 30px rgba(51, 0, 102, 0.08);
+    transition: all 0.3s ease;
+    width: 100%;
+    overflow: hidden;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .powerbi-section iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+    display: block;
+  }
+
+  /* Section Styling */
+  .section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(51, 0, 102, 0.1);
+    box-shadow: 0 10px 30px rgba(51, 0, 102, 0.08);
+    transition: all 0.3s ease;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section:hover {
+    box-shadow: 0 15px 40px rgba(51, 0, 102, 0.12);
+    transform: translateY(-2px);
+  }
+  
+  .section h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  }
+  
+  /* Add styled section headers */
+  .section h3::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  background-color: var(--secondary);
+  border-radius: var(--radius-sm);
+  }
+  
+  /* Input Groups */
+  .input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  align-items: end;
+  margin-bottom: 1.75rem;
+  }
+  
+  .input-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  }
+  
+  /* Form Controls - Inputs and Selects */
+  .input-group input,
+  .input-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  background-color: white;
+  }
+  
+  .input-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 12px) center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+  }
+  
+  .input-group input::placeholder {
+  color: #aaa;
+  }
+  
+  /* Buttons */
+  button {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.25rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  min-width: 120px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
+  }
+  
+  button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(41, 128, 185, 0.2);
+  }
+  
+  button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.3);
+  }
+  
+  /* KPI Section */
+  .kpi-section {
+  margin: 1.5rem 0;
+  }
+  
+  .kpi-card {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: white;
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+  
+  .kpi-card h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+  }
+  
+  .kpi-card .kpi-value {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0;
+  }
+  
+  .kpi-card p {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  }
+  
+  /* Chart Section */
+  .chart-section {
+  margin-top: 1.5rem;
+  min-height: 360px;
+  position: relative;
+  }
+  
+  .chart-section canvas {
+  margin-bottom: 1.5rem;
+  }
+  
+  .chart-section h3 {
+  margin-bottom: 1.5rem;
+  }
+  
+  /* Empty State Messages */
+  .kpi-card p,
+  .chart-section > p {
+  font-size: 0.95rem;
+  color: #666;
+  padding: 1.5rem;
+  background-color: var(--light);
+  border-radius: var(--radius);
+  text-align: center;
+  margin: 1rem 0;
+  }
+  
+  /* Fix for the "No prediction available" template */
+  ng-template .kpi-card {
+  background: #f8f9fa;
+  color: var(--dark);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+  }
+  
+  ng-template .kpi-card p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  text-align: center;
+  background: transparent;
+  padding: 1rem;
+  }
+  
+  /* Error Message */
+  .error-message {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: var(--danger);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--danger);
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  }
+  
+  .error-message::before {
+  content: "⚠️";
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+  }
+  
+  /* Loading States */
+  .loading {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+  }
+  
+  .loading::after {
+  content: "Loading...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  z-index: 10;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+  .dashboard-container {
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  }
+  }
+  
+  @media (max-width: 768px) {
+  .input-group {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  }
+  .kpi-card .kpi-value {
+  font-size: 1.8rem;
+  }
+  .dashboard-container {
+  padding: 1.25rem;
+  margin: 1rem;
+  }
+  .section {
+  padding: 1.25rem;
+  }
+  }
+  
+  @media (max-width: 576px) {
+  .dashboard-container h1 {
+  font-size: 1.5rem;
+  padding-bottom: 0.75rem;
+  }
+  .section h3 {
+  font-size: 1.1rem;
+  }
+  button {
+  width: 100%;
+  }
+  }
+  
+  

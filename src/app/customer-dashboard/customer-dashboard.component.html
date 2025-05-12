@@ -1,0 +1,109 @@
+<div class="dashboard-container">
+  <div class="content-wrapper">
+    <div class="header">
+      <button class="back-button" (click)="goToLogin()">
+        <i class="fas fa-arrow-left"></i> Back to Login
+      </button>
+      <h1>Customer Dashboard</h1>
+    </div>
+
+    <!-- Power BI Dashboard Section -->
+    <div class="powerbi-section">
+      <iframe 
+        title="client_version" 
+        width="100%" 
+        height="800" 
+        src="https://app.powerbi.com/reportEmbed?reportId=3576a7df-b31b-40a3-8a6c-c568a34cceed&autoAuth=true&ctid=604f1a96-cbe8-43f8-abbf-f8eaf5d85730&filterPaneEnabled=false&navContentPaneEnabled=false" 
+        frameborder="0" 
+        allowFullScreen="true">
+      </iframe>
+    </div>
+  
+    <!-- === Section 2: Get Recommendations === -->
+    <div class="section">
+      <h3>Find Best Options</h3>
+      <!-- Error message for recommendations -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      
+      <div class="input-group">
+        <div class="input-field">
+          <label>Product Name:</label>
+          <input [(ngModel)]="productName" placeholder="e.g., Eau" />
+        </div>
+        <div class="input-field">
+          <label>Your Budget:</label>
+          <input [(ngModel)]="budget" type="number" placeholder="e.g., 50" />
+        </div>
+      </div>
+      <div class="button-container">
+        <button class="recommendation-btn" (click)="getRecommendations()">Get Recommendations</button>
+      </div>
+  
+      <!-- Recommendations Chart -->
+      <div class="chart-section">
+        <div *ngIf="recommendations.length > 0; else noRecommendations">
+          <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"></canvas>
+  
+          <ul class="recommendation-list">
+            <li *ngFor="let rec of recommendations">
+              {{ rec.Nom_Produit }} ({{ rec.Categorie_Produit }}) - {{ rec.Prix_Unitaire }} TND
+              <small *ngIf="rec['Produit de référence']">
+                (Reference: {{ rec['Produit de référence'] }})
+              </small>
+            </li>
+          </ul>
+        </div>
+        <ng-template #noRecommendations>
+          <p>No recommendations available yet.</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Scratch and Win Section -->
+    <div class="section scratch-win-section">
+      <h3>| Try Your Luck! Spin & Win</h3>
+      <app-spin-win></app-spin-win>
+    </div>
+  
+    <!-- Comment Section -->
+    <div class="section">
+      <h3>Give us your Feedback</h3>
+      <div class="comment-form">
+        <div class="form-group">
+          <label for="commentText">Write Your Feedback:</label>
+          <textarea
+            id="commentText"
+            [(ngModel)]="commentText"
+            placeholder="Enter your comment here..."
+            rows="4"
+            class="form-control"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="targetType">Choose What You're Commenting On:</label>
+          <select id="targetType" [(ngModel)]="targetType" (ngModelChange)="onTargetTypeChange($event)" class="form-control">
+            <option value="Store">Store</option>
+            <option value="Hotel">Hotel</option>
+            <option value="Flight">Flight</option>
+          </select>
+        </div>
+
+
+        <button class="submit-btn" (click)="submitComment()">Send Feedback</button>
+
+      </div>
+    </div>
+
+    <!-- Comment Messages -->
+    <div *ngIf="commentError" class="error-message">
+      {{ commentError }}
+    </div>
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+  </div>
+</div>
+  
