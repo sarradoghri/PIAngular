@@ -1,27 +1,16 @@
-# BiProject
+CompareIt 
+This document provides a complete guide to using Git for managing the source code of Comaperit, a smart price comparison platform. Comaperit leverages AI and business intelligence to help users find the best deals across products, flights, and hotels, while offering valuable market insights to businesses.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+The Git documentation outlines how to:
 
-## Development server
+Set up version control for the Angular frontend,
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Follow a clear and consistent branching strategy,
 
-## Code scaffolding
+Write meaningful commit messages,
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Collaborate efficiently with team members, and
 
-## Build
+Maintain clean and stable project development.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+By adhering to this guide, the development team ensures traceable changes, minimized conflicts, and streamlined collaboration. It supports the agile and scalable development of Comaperit, keeping the project organized and aligned with best software engineering practices.
